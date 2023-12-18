@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+          <!--Import Google Icon Font-->
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <!--Import materialize.css-->
+          <link rel="stylesheet"
+          href= 
+"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> 
+  
+    
+    <meta charset="UTF-8">
+    <title>Employee Overview</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper blue lighten-1">
+          <a href="index.html" class="brand-logo center">Company Overview</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="Index.html">Companies</a></li>
+            <li class="active"><a href="employees.html">Employees</a></li>
+          </ul>
+        </div>
+      </nav>
+      <h3 id="titleHeader">Employees</h3>
+
+      <div class="buttons">
+        <a class="waves-effect waves-light btn modal-trigger blue lighten-1" href="#modalAdd">Add Employee</a>
+      <a id="deleteButton" class="btn waves-effect waves-light blue lighten-1">Delete Employee</a>
+    </div>
+  
+        <div id="modalAdd" class="modal">
+          <div class="modal-content">
+            <h4>Add a new employee</h4>
+            <div class="row">
+            <form class="col s12"action="javascript:void(0);" method="POST" onsubmit="addEmployee()">
+                      <div class="row">
+                        <div class="input-field col s6">
+                          <input id="givenName" type="text" class="validate">
+                          <label for="givenName">Given Name</label>
+                          <span id = "helperTextGiven"class="helper-text" style="color:red" data-error="" ></span>
+
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="surName" type="text" class="validate">
+                          <label for="surName">Sur Name</label>
+                          <span id = "helperTextSur"class="helper-text" style="color:red" data-error="" ></span>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                            <div class="input-field col s12">
+                              <input type="text" id="company" class="autocomplete">
+                              <label for="company">Company</label>
+                              <span id = "helperTextCompany"class="helper-text" style="color:red" data-error="" ></span>
+
+                            </div>
+                          </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input  id="companyRole" type="text" class="validate">
+                          <label for="companyRole">Company Role</label>
+                          <span id = "helperTextCompanyRole"class="helper-text" style="color:red" data-error="" ></span>
+
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input id="email" type="email" class="validate">
+                          <label for="email">Email</label>
+                          <span class="helper-text" data-error="invalid email" data-success="valid email"></span>
+                        </div>
+                        <div class="input-field col s6">
+                          <select id="gender">
+                            <option value="Gender" disabled selected>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                          </select>
+                          <span id = "helperTextGender"class="helper-text" style="color:red" data-error="" ></span>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn waves-effect waves-light" type="submit" name="action" >Submit
+                    
+                        </button>
+                        </div>
+                    </form>
+                  </div>
+          </div>
+         
+        </div>
+        <div id="modalUpdate" class="modal">
+          <div class="modal-content">
+            <h4 id="modalHeader">Update company name</h4>
+            <form action="javascript:void(0);" method="PUT" onsubmit="editEmployee()">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="updateGivenName" type="text" class="validate">                         
+                  <span id = "updatehelperTextGiven"class="helper-text" style="color:red" data-error="" ></span>
+                  
+                </div>
+                <div class="input-field col s6">
+                  <input id="updateSurName" type="text" class="validate">
+                  <span id = "updatehelperTextSur"class="helper-text" style="color:red" data-error="" ></span>
+                </div>
+              </div>
+              <div class="row">
+                    <div class="input-field col s12">
+                      <input type="text" id="updateCompany" class="autocomplete">
+                      <span id = "updatehelperTextCompany"class="helper-text" style="color:red" data-error="" ></span>
+                    </div>
+                  </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input  id="updateCompanyRole" type="text" class="validate">
+                  <span id = "updatehelperTextCompanyRole"class="helper-text" style="color:red" data-error="" ></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="updateEmail" type="email" class="validate">
+                  <span class="helper-text" data-error="invalid email" data-success="valid email"></span>
+                </div>
+                <div class="input-field col s6">
+                  <select id="updateGender">
+                    <option value="Gender" disabled selected>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <span id = "updatehelperTextGender"class="helper-text" style="color:red" data-error="" ></span>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn waves-effect waves-light" type="submit" name="action" >Submit
+            
+                </button>
+                </div>
+          </form>
+          </div>
+         
+        </div>
+  
+       
+      <script src="js/employees.js" asp-append-version="true"></script>
+      <script type="text/javascript">
+        
+        
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+      </script> 
+ <script>
+    $(document).ready(function(){
+$('.modal').modal();
+
+});
+$(document).ready(function() {
+M.updateTextFields();
+});
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+        
+
+</script>
+
+    </body>
+    </html>
